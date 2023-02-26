@@ -20,7 +20,7 @@ const EditProduct = () => {
       console.log(err.message)
     })
 
-  },[])
+  },[productId])
 
   const [id,setId]=useState()
   const [title,setTitle]=useState()

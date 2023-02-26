@@ -1,12 +1,12 @@
 import React, {useEffect, useState} from 'react';
 import './product.css'
-import axios from "axios";
-import {Link, useParams} from "react-router-dom";
+
+import {Link} from "react-router-dom";
 
 
 const baseURL = "http://localhost:8000/products"
 const Products = () => {
-    const {productId}=useParams();
+    //const {productId}=useParams();
     const [product, setProduct] = useState(null)
 
     useEffect(() => {
