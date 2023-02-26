@@ -36,7 +36,18 @@ const EditProduct = () => {
         "x-access-token": "token-value",
       },
       body:JSON.stringify(productData)
-    },[])
+    },[]).then((response)=>{
+      if(!response.ok){
+        throw new Error('Update failed');
+      }
+      return response.json();
+    }).then((data)=>{
+      alert('Update is successful');
+      navigate('/');
+    })
+    catch((error)=>{
+      console.log(error.message);
+    })
   }
    
   return (
