@@ -44,8 +44,7 @@ const EditProduct = () => {
     }).then((data)=>{
       alert('Update is successful');
       navigate('/');
-    })
-    catch((error)=>{
+    }).catch((error)=>{
       console.log(error.message);
     })
   }
