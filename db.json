@@ -146,6 +146,26 @@
       "price": "56",
       "description": "cheep",
       "category": "kids"
+    },
+    {
+      "id": "22",
+      "title": "crud ",
+      "price": "7642",
+      "description": "goitom ",
+      "category": "kids"
+    },
+    {
+      "id": "f0e9c1af-322b-4063-8ff2-cf84e91f6080",
+      "title": "muez ",
+      "price": "12341",
+      "description": "improved"
+    },
+    {
+      "id": "37fce032-17a1-4a5b-913c-47c4049703ef",
+      "title": "weretre",
+      "price": "3453",
+      "description": "efdsvd",
+      "category": "kids"
     }
   ]
 }

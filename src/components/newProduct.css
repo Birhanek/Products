@@ -42,3 +42,8 @@ h2 {
 .delete{
     background-color: red;
 }
+.add_container{
+    display:flex;
+    align-items: center;
+    margin-left: 25%!important;
+}
