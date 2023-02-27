@@ -9,9 +9,11 @@ const AddProduct = () => {
     const [description,setDescription]=useState()
     const [category,setCategory]=useState()
     const navigate = useNavigate();
-    const handleSubmit=(e)=> {
+    const handleSubmit =(e)=> {
         e.preventDefault();
+
         const productData = {id, title, price, description, category}
+
         fetch("http://localhost:8000/products", {
             method: "POST",
             headers: {"content-type":"application/json"},
@@ -24,11 +26,6 @@ const AddProduct = () => {
             console.log(err)
         })
     }
-        // useEffect(() => {
-        //     handleSubmit()
-        //     navigate('/')
-        // }, []);
-
 
     return (
         <div className="add-product">

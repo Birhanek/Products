@@ -17,5 +17,13 @@ useState() - to contain the state of a specific variable and for updating the sp
 useEffect() - we have used this hook when we read the data and during updating of a data
 useNavigate()- used to navigate to the specified URL
 
+Routing is fully implemented :
+    - creating a product 
+    - Updating a product
 
+```
+## Where does the data come?
+```
+We have used a localhost database generator (that looks like an API)
+db.json - is an api that stores data.
 ```

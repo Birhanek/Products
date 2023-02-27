@@ -5,20 +5,32 @@ import {Link} from "react-router-dom";
 import {FaPen, FaTrash} from 'react-icons/fa';
 
 
+
 const baseURL = "http://localhost:8000/products"
 const Products = () => {
-    const [product, setProduct] = useState(null)
+    const [product, setProduct] = useState([]);
+    const [isLoading,setIsLoading] = useState(false);
+    const [error,setError]= useState([]);
 
     useEffect(() => {
-        
+        setIsLoading(true);
         fetch(baseURL).then((res) => {
+            if(!res.ok){
+                throw new Error('Resource Not Found')
+            }
             return res.json();
 
-        }).then((response) => {
-            console.log(response)
-            setProduct(response)
+        }).then((data) => {
+          
+            setProduct(data)
+            setIsLoading(false)
+            setError([])
+
         }).catch((err) => {
             console.log(err.message)
+            setProduct([])
+            setIsLoading(false)
+            setError(err.message)
         })
     }, []);
 
@@ -35,14 +47,14 @@ const Products = () => {
 
 
         }
-
-
-
+    
+   
 
         return (
             <div className='products'>
                 <h1 className='products__title'>Products</h1>
                 <Link to='/add' className='link__add'>Create New Product</Link>
+                {isLoading && <p>Loading ...</p>}
                 <div className='container'>
                     <table className='table'>
                         <thead>
@@ -55,8 +67,8 @@ const Products = () => {
                             <th></th>
                         </tr>
                         </thead>
-                        <tbody>
 
+                        <tbody>
                         {product && product.map(item =>
 
                             <tr key={item.id}>
@@ -82,6 +94,7 @@ const Products = () => {
                         </tbody>
                     </table>
                 </div>
+                {error && <p>{error}</p>}
             </div>
         );
 };
