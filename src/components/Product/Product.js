@@ -1,46 +1,40 @@
 import React, {useEffect, useState} from 'react';
 import './product.css'
-
 import {Link} from "react-router-dom";
+
+import {FaPen, FaTrash} from 'react-icons/fa';
+
 
 
 const baseURL = "http://localhost:8000/products"
 const Products = () => {
-    //const {productId}=useParams();
-    const [product, setProduct] = useState(null)
+    const [product, setProduct] = useState([]);
+    const [isLoading,setIsLoading] = useState(false);
+    const [error,setError]= useState([]);
 
     useEffect(() => {
-        // setProductData();
+        setIsLoading(true);
         fetch(baseURL).then((res) => {
+            if(!res.ok){
+                throw new Error('Resource Not Found')
+            }
             return res.json();
 
-        }).then((response) => {
-            console.log(response)
-            setProduct(response)
+        }).then((data) => {
+          
+            setProduct(data)
+            setIsLoading(false)
+            setError([])
+
         }).catch((err) => {
             console.log(err.message)
+            setProduct([])
+            setIsLoading(false)
+            setError(err.message)
         })
     }, []);
-    //
-    // const setProductData = () => {
-    //     //     axios.get(baseURL).then((response) => {
-    //     //         setProduct(response.data);
-    //     //         console.log(response)
-    //     //     }).catch(error => {
-    //     //         alert("Error Ocurred while loading data:" + error);
-    //     //     });
-    //     //
-    //     // }
-        const deleteProduct = (id) => {
-            // console.log(id)
-            //
-            // axios.delete(`http://localhost:8000/products/${id}`).then((response)=>{
-            //     alert('remove successfully.')
-            //      window.location.reload()
-            //
-            // }).catch((err) => {
-            //     console.log(err)
-            // })
+
+    const deleteProduct = (id) => {  
             fetch(`http://localhost:8000/products/${id}`, {
                 method: "DELETE",
 
@@ -53,30 +47,28 @@ const Products = () => {
 
 
         }
-
-
-
+    
+   
 
         return (
-            <div className='navbar'>
-                <Link to='/add' className='link_add'>Add New</Link>
-
+            <div className='products'>
+                <h1 className='products__title'>Products</h1>
+                <Link to='/add' className='link__add'>Create New Product</Link>
+                {isLoading && <p>Loading ...</p>}
                 <div className='container'>
                     <table className='table'>
                         <thead>
                         <tr>
-                            <th>id</th>
-                            <th>title</th>
-                            <th>price</th>
-                            <th>description</th>
-                            <th>category</th>
-
-                            <th></th>
+                            <th>ID</th>
+                            <th>Title</th>
+                            <th>Price</th>
+                            <th>Description</th>
+                            <th>Category</th>
                             <th></th>
                         </tr>
                         </thead>
-                        <tbody>
 
+                        <tbody>
                         {product && product.map(item =>
 
                             <tr key={item.id}>
@@ -86,15 +78,14 @@ const Products = () => {
                                 <td>{item.description}</td>
                                 <td>{item.category}</td>
                                 <td>
-                                    <Link to={`/edit/${item.id}`} className='link'>
-                                        <i className='fas fa-edit'></i> Edit
+                                    <div className='editing__buttons'>
+                                    <Link to={`/edit/${item.id}`} className='btn-edit'><FaPen />
                                     </Link>
-                                </td>
-                                <td>
-                                    <button className='delete' type='submit'
-                                            onClick={() => deleteProduct(item.id)}>
-                                        <i className='fas fa-delete-left'></i>Delete
+                                    <button className='btn-delete' type='submit'
+                                            onClick={() => deleteProduct(item.id)}><FaTrash/>
                                     </button>
+                                    </div>
+                                    
                                 </td>
                             </tr>
                         )}
@@ -103,6 +94,7 @@ const Products = () => {
                         </tbody>
                     </table>
                 </div>
+                {error && <p>{error}</p>}
             </div>
         );
 };

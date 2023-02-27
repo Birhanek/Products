@@ -2,9 +2,10 @@ import React, {useEffect, useState} from 'react'
 import {useNavigate, useParams} from "react-router-dom";
 
 const EditProduct = () => {
-  const productId=useParams();
-  console.log(productId)
 
+  
+
+  const productId=useParams();
   useEffect(() => {
     fetch(`http://localhost:8000/products/${productId.id}`).then((res)=>{
       return res.json()

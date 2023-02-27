@@ -10,7 +10,7 @@ select {
     box-sizing: border-box;
 }
 
-button[type=submit] {
+.btn-add {
     width: 100%;
     background-color: goldenrod;
     color: white;
@@ -21,7 +21,7 @@ button[type=submit] {
     cursor: pointer;
 }
 
-button[type=submit]:hover {
+.btn-add:hover {
     background-color: green;
 }
 
@@ -29,7 +29,7 @@ h2 {
     color: green;
 }
 
-.AddProduct {
+.add-product {
     width: 60%;
     height: 90vh;
     border-radius: 5px;
@@ -38,12 +38,4 @@ h2 {
     position: absolute;
     left: 7%;
     margin: 1rem;
-}
-.delete{
-    background-color: red;
-}
-.add_container{
-    display:flex;
-    align-items: center;
-    margin-left: 25%!important;
 }
