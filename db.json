@@ -5,7 +5,7 @@
       "title": "Laptops",
       "price": "1000",
       "description": "Your perfect pack for everyday use and walks in the forest. Stash y",
-      "category": "women"
+      "category": "kids"
     },
     {
       "id": 2,
@@ -146,6 +146,13 @@
       "price": "56",
       "description": "cheep",
       "category": "kids"
+    },
+    {
+      "id": "22",
+      "title": "Birhane",
+      "price": "342",
+      "description": "It is one of the good products",
+      "category": "women"
     }
   ]
 }

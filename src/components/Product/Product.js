@@ -1,16 +1,16 @@
 import React, {useEffect, useState} from 'react';
 import './product.css'
-
 import {Link} from "react-router-dom";
+
+import {FaPen, FaTrash} from 'react-icons/fa';
 
 
 const baseURL = "http://localhost:8000/products"
 const Products = () => {
-    //const {productId}=useParams();
     const [product, setProduct] = useState(null)
 
     useEffect(() => {
-        // setProductData();
+        
         fetch(baseURL).then((res) => {
             return res.json();
 
@@ -21,26 +21,8 @@ const Products = () => {
             console.log(err.message)
         })
     }, []);
-    //
-    // const setProductData = () => {
-    //     //     axios.get(baseURL).then((response) => {
-    //     //         setProduct(response.data);
-    //     //         console.log(response)
-    //     //     }).catch(error => {
-    //     //         alert("Error Ocurred while loading data:" + error);
-    //     //     });
-    //     //
-    //     // }
-        const deleteProduct = (id) => {
-            // console.log(id)
-            //
-            // axios.delete(`http://localhost:8000/products/${id}`).then((response)=>{
-            //     alert('remove successfully.')
-            //      window.location.reload()
-            //
-            // }).catch((err) => {
-            //     console.log(err)
-            // })
+
+    const deleteProduct = (id) => {  
             fetch(`http://localhost:8000/products/${id}`, {
                 method: "DELETE",
 
@@ -58,20 +40,18 @@ const Products = () => {
 
 
         return (
-            <div className='navbar'>
-                <Link to='/add' className='link_add'>Add New</Link>
-
+            <div className='products'>
+                <h1 className='products__title'>Products</h1>
+                <Link to='/add' className='link__add'>Create New Product</Link>
                 <div className='container'>
                     <table className='table'>
                         <thead>
                         <tr>
-                            <th>id</th>
-                            <th>title</th>
-                            <th>price</th>
-                            <th>description</th>
-                            <th>category</th>
-
-                            <th></th>
+                            <th>ID</th>
+                            <th>Title</th>
+                            <th>Price</th>
+                            <th>Description</th>
+                            <th>Category</th>
                             <th></th>
                         </tr>
                         </thead>
@@ -86,15 +66,14 @@ const Products = () => {
                                 <td>{item.description}</td>
                                 <td>{item.category}</td>
                                 <td>
-                                    <Link to={`/edit/${item.id}`} className='link'>
-                                        <i className='fas fa-edit'></i> Edit
+                                    <div className='editing__buttons'>
+                                    <Link to={`/edit/${item.id}`} className='btn-edit'><FaPen />
                                     </Link>
-                                </td>
-                                <td>
-                                    <button className='delete' type='submit'
-                                            onClick={() => deleteProduct(item.id)}>
-                                        <i className='fas fa-delete-left'></i>Delete
+                                    <button className='btn-delete' type='submit'
+                                            onClick={() => deleteProduct(item.id)}><FaTrash/>
                                     </button>
+                                    </div>
+                                    
                                 </td>
                             </tr>
                         )}

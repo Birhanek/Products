@@ -31,8 +31,8 @@ const AddProduct = () => {
 
 
     return (
-        <div className="AddProduct">
-            <h2>New Product Isertion</h2>
+        <div className="add-product">
+            <h2>Creating New Product</h2>
             <form action="" onSubmit={handleSubmit}>
                 <div className="field-group">
                     <label htmlFor="title">Id: </label>
@@ -61,7 +61,7 @@ const AddProduct = () => {
                     </select>
                 </div>
                 <div className="field-group">
-                    <button type="submit">Add Products</button>
+                    <button className='btn-add' type="submit">Add Products</button>
                 </div>
             </form>
         </div>

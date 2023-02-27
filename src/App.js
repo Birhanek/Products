@@ -1,24 +1,22 @@
 
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import './App.css';
-import React from "react";
-import Products from "./components/Product/Product";
-import {BrowserRouter as Router,Routes,Route} from "react-router-dom";
-import AddProduct from "./components/newProduct";
-import EditProduct from "./components/EditProduct";
-
+import AddProduct from './components/AddProduct';
+import EditProduct from './components/EditProduct';
+import Products from './components/Product/Product';
 
 function App() {
-    return (
-        <div className="App">
-            <Router>
-                <Routes>
-                    <Route path='/' element={<Products/>}/>
-                    <Route path='/add' element={<AddProduct/>}/>
-                    <Route path='/edit/:id' element={<EditProduct/>}/>
-                </Routes>
-            </Router>
-        </div>
-    );
+  return (
+    <div className="app">
+        <BrowserRouter>
+          <Routes>
+            <Route path='/' element={<Products/>}/>
+            <Route path='/add' element={<AddProduct/>}/>
+            <Route path={`/edit/:id`} element={<EditProduct/>}/>
+          </Routes>
+        </BrowserRouter>
+    </div>
+  );
 }
 
 export default App;
