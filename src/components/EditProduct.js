@@ -51,7 +51,7 @@ const EditProduct = () => {
 
   return (
       <div className="add-product">
-        <h2>Edit product </h2>
+        <h2 className='title'>Edit product </h2>
         <form action="" onSubmit={handleSubmit}>
           <div className="field-group">
             <label htmlFor="title">Id </label>
@@ -81,7 +81,7 @@ const EditProduct = () => {
             </select>
           </div>
           <div className="field-group">
-            <button type="submit">Update product</button>
+            <button className='btn-update' type="submit">Update product</button>
           </div>
         </form>
       </div>

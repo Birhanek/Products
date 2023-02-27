@@ -49,14 +49,11 @@ const AddProduct = () => {
 
 
     return (
-        <div className="AddProduct">
-            <h2>New Product Insert</h2>
-            <div className='add_container'>
+        <div className="add-product">
+             <h2 className='title'>Creating New Product</h2>
+           
                 <form action="" onSubmit={handleSubmit}>
-                    {/*<div className="field-group">*/}
-                    {/*    <label htmlFor="title">Id: </label>*/}
-                    {/*    <input type="text" name="id" id="title" />*/}
-                    {/*</div>*/}
+
                     <div className="field-group">
                         <label htmlFor="title">title: {validName ? <p>{validName}</p> : " "} </label>
                         <input type="text" name="id" id="title" value={title} onChange={(e)=>{setTitle(e.target.value)}} required />
@@ -80,12 +77,10 @@ const AddProduct = () => {
                         </select>
                     </div>
                     <div className="field-group">
-                        <button type="submit">Add Products</button>
+                        <button className='btn-create' type="submit">Create Product</button>
                     </div>
                 </form>
             </div>
-
-        </div>
     )
 }
 
