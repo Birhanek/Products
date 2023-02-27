@@ -69,7 +69,7 @@ const AddProduct = () => {
                     </div>
                     <div className="field-group">
                         <label htmlFor="category">Category: </label>
-                        <select name="category" id="category"  onChange={(e)=>{setCategory(e.target.value)}}>
+                        <select value={category} name="category" id="category"  onChange={(e)=>{setCategory(e.target.value)}}>
                             <option value="men">Men</option>
                             <option value="women">Women</option>
                             <option value="kids">Kids</option>

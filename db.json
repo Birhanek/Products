@@ -146,6 +146,12 @@
       "price": "56",
       "description": "cheep",
       "category": "kids"
+    },
+    {
+      "id": "5ff35f24-6c2e-4c32-a6f0-f2fda130f897",
+      "title": "New brand shoes",
+      "price": "23",
+      "description": "21th century new shoes"
     }
   ]
 }
