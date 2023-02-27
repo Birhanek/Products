@@ -27,3 +27,8 @@ Routing is fully implemented :
 We have used a localhost database generator (that looks like an API)
 db.json - is an api that stores data.
 ```
+## Link of our project is 
+
+Demo link: [Demo link](https://velvety-naiad-282a61.netlify.app/)
+
+Video Link:[See the Project process](https://www.youtube.com/watch?v=Nh-_3Csq5Js)
